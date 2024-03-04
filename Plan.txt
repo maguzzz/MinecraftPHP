@@ -1,0 +1,11 @@
+- Tools (abstract)
+  - Hand
+  - Pickaxe
+  - Axe
+  - Shovel
+  - Hoe
+
+- Block (abstract)
+  - Dirt
+  - Stone
+  - Wood
