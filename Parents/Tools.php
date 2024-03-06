@@ -14,14 +14,16 @@ abstract class Tools extends Items {
 
     protected $material;
 
-    public function __construct($material){
+    public function __construct(){
 
         parent::__construct();
 
         $this->setMaxCount(1);
 
-        $this->material = $material;
+    }
 
+    public function setMaterial($material = Materials::WOOD) {
+        $this->material = $material;
     }
 
     function getMaterial() {

@@ -2,7 +2,8 @@
 include_once('Parents/IncludeItems.php');
 
 
-$pickaxe = new Pickaxe(Materials::DIAMOND);
+$pickaxe = new Pickaxe();
+$pickaxe->setMaterial();
 
 ?>
 
