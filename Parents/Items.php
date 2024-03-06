@@ -10,19 +10,22 @@ abstract class Items {
 
     protected $name;
 
-    private $hasRecipe; //No Current 
-    private $recipe = ["","","","","","","","",""];
+    protected $hasRecipe; //No Current 
+    protected $recipe = [["", "", ""], 
+                         ["", "", ""], 
+                         ["", "", ""]];
 
     function __construct(){
         self::$highestId++;
         $this->id = self::$highestId;
     }
 
-    protected function setMaxCount($count){
-        $this->maxcount = $count;  
-    }
     public function getId(){
         return $this->id;
+    }
+
+    protected function setMaxCount($count){
+        $this->maxcount = $count;  
     }
 
     public function getMaxCount() {
@@ -51,5 +54,17 @@ abstract class Items {
 
     public function getName() {
         return $this->name;
+    }
+
+    public function hasRecipe() {
+        if (empty(array_filter($this->recipe))) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public function getRecipe() {
+        return $this->recipe;
     }
 }

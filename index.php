@@ -3,7 +3,7 @@ include_once('Parents/IncludeItems.php');
 
 
 $pickaxe = new Pickaxe();
-$pickaxe->setMaterial();
+$pickaxe->initializeTool(Materials::WOOD);
 
 ?>
 
@@ -18,11 +18,11 @@ $pickaxe->setMaterial();
     <title>Big Block</title>
 </head>
 
-<body>
-    <?php
-    echo ($pickaxe->getName());
-
-    ?>
-</body>
-
+    <body>
+        <?php
+            echo '<pre>';
+            var_dump($pickaxe->getRecipe());
+            echo '</pre>';
+        ?>
+    </body>
 </html>
