@@ -1,17 +1,16 @@
 <?php 
 
-abstract class Items{
+abstract class Items {
 
     private static $highestId;
     protected $id;
 
+    protected $maxcount;
     protected $count;
 
     protected $name;
 
-    protected $maxcount;
-
-    function __construct($id){
+    function __construct() {
         self::$highestId++;
         $this->id = self::$highestId;
     }
@@ -20,8 +19,18 @@ abstract class Items{
         return $this->id;
     }
 
+    public function getMaxCount() {
+        return $this->maxcount;
+    }
+
     public function getCount(){
         return $this->count;
+    }
+
+    public function increaseCount($howmany){
+        if($this->count < $this->maxcount){
+            $this->count += $howmany;
+        }
     }
 
     public function decreaseCount($howmany){
@@ -30,9 +39,11 @@ abstract class Items{
         }
     }
 
-    public function increaseCount($howmany){
-        if($this->count < $this->maxcount){
-            $this->count += $howmany;
-        }
+    public function setName($name) {
+        $this->name = $name;
+    }
+
+    public function getName() {
+        return $this->name;
     }
 }

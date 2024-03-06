@@ -4,11 +4,11 @@ include_once('Blocks/Blocks.php');
 include_once('Tools/Tools.php');
 include_once('Tools/Pickaxe.php');
 
-$woodenPickaxe1 = new Pickaxe();
-$goldenPickaxe1 = new Pickaxe();
-$diamondPickaxe1 = new Pickaxe();
-$ironPickaxe1 = new Pickaxe();
-$goldenPickaxe2 = new Pickaxe();
+$woodenPickaxe1 = new Pickaxe(12);
+$goldenPickaxe1 = new Pickaxe(12);
+$diamondPickaxe1 = new Pickaxe(12);
+$ironPickaxe1 = new Pickaxe(12);
+$goldenPickaxe2 = new Pickaxe(12);
 
 ?>
 
@@ -22,11 +22,11 @@ $goldenPickaxe2 = new Pickaxe();
 
     <body>
         <?php
-            echo($woodenPickaxe1->getID());
-            echo($goldenPickaxe1->getID());
-            echo($diamondPickaxe1->getID());
-            echo($ironPickaxe1->getID());
-            echo($goldenPickaxe2->getID());
+            echo($woodenPickaxe1->getMaxCount());
+            echo($goldenPickaxe1->getMaxCount());
+            echo($diamondPickaxe1->getMaxCount());
+            echo($ironPickaxe1->getMaxCount());
+            echo($goldenPickaxe2->getMaxCount());
         ?>
     </body>
 </html>
