@@ -17,7 +17,7 @@ $pickaxe->setMaterial();
 
     <body>
         <?php
-            echo ($pickaxe->getMaterial());
+            echo ($pickaxe->getName());
         ?>
     </body>
 </html>
