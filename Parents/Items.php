@@ -57,11 +57,14 @@ abstract class Items {
     }
 
     public function hasRecipe() {
-        if (empty(array_filter($this->recipe))) {
-            return false;
-        } else {
-            return true;
+        foreach ($this->recipe as $row) {
+            foreach ($row as $value) {
+                if ($value != "") {
+                    return true;
+                }
+            }
         }
+        return false;
     }
 
     public function getRecipe() {
