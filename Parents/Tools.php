@@ -12,9 +12,11 @@ interface Materials
 
 abstract class Tools extends Items {
 
-    private $material;
+    protected $material;
 
-    function __construct($material) {
+    public function __construct($material){
+
+        parent::__construct();
 
         $this->setMaxCount(1);
 

@@ -2,7 +2,7 @@
 include_once('Parents/IncludeItems.php');
 
 
-$pickaxe = new Pickaxe(Materials::WOOD);
+$pickaxe = new Pickaxe(Materials::DIAMOND);
 
 ?>
 

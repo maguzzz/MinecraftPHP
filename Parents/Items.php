@@ -5,8 +5,6 @@ abstract class Items {
     private static $highestId;
     protected $id;
 
-    protected $uniqueName; //diamond_pickaxe
-
     protected $maxcount = 64;
     protected $count;
 
