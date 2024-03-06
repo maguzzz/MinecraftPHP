@@ -1,9 +1,16 @@
 <?php
 
 class Blocks {
+    protected $name;
 
-    public $blocktype;
-    public $health;
-    public $name;
+    protected $health;
 
+
+    function __construct($health = 100;){
+        $this->health = $health;
+    }
+
+    function getHealth(){
+        return $this->$health;
+    }
 }
