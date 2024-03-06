@@ -3,7 +3,7 @@ include_once('Parents/IncludeItems.php');
 
 
 $pickaxe = new Pickaxe();
-$pickaxe->setMaterial();
+$pickaxe->initializeTool(Materials::WOOD);
 
 ?>
 
@@ -17,7 +17,9 @@ $pickaxe->setMaterial();
 
     <body>
         <?php
-            echo ($pickaxe->getName());
+            echo '<pre>';
+            var_dump($pickaxe->getRecipe());
+            echo '</pre>';
         ?>
     </body>
 </html>
