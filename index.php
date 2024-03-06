@@ -2,11 +2,11 @@
 include_once('Parents/IncludeItems.php');
 
 
-$woodenPickaxe1 = new Pickaxe();
-$goldenPickaxe1 = new Pickaxe();
-$diamondPickaxe1 = new Pickaxe();
-$ironPickaxe1 = new Pickaxe();
-$goldenPickaxe2 = new Pickaxe();
+$woodenPickaxe1 = new Pickaxe(Materials::Wood);
+$goldenPickaxe1 = new Pickaxe(Materials::Wood);
+$diamondPickaxe1 = new Pickaxe(Materials::Wood);
+$ironPickaxe1 = new Pickaxe(Materials::Wood);
+$goldenPickaxe2 = new Pickaxe(Materials::Wood);
 
 ?>
 
