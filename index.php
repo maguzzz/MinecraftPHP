@@ -2,12 +2,13 @@
 
 include_once('Blocks/Blocks.php');
 include_once('Tools/Tools.php');
+include_once('Tools/Pickaxe.php');
 
-$hand = new Tools();
-$test = new Tools();
-$test1 = new Tools();
-$test2 = new Tools();
-$test3 = new Tools();
+$woodenPickaxe1 = new Pickaxe();
+$goldenPickaxe1 = new Pickaxe();
+$diamondPickaxe1 = new Pickaxe();
+$ironPickaxe1 = new Pickaxe();
+$goldenPickaxe2 = new Pickaxe();
 
 ?>
 
@@ -21,11 +22,11 @@ $test3 = new Tools();
 
     <body>
         <?php
-            echo ($hand->id.'<br>');
-            echo ($test->id.'<br>');
-            echo ($test1->id.'<br>');
-            echo ($test2->id.'<br>');
-            echo ($test3->id.'<br>');
+            echo($woodenPickaxe1->getID());
+            echo($goldenPickaxe1->getID());
+            echo($diamondPickaxe1->getID());
+            echo($ironPickaxe1->getID());
+            echo($goldenPickaxe2->getID());
         ?>
     </body>
 </html>

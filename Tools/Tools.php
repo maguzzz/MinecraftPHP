@@ -1,16 +1,13 @@
 <?php
 
-include_once('Blocks/Blocks.php');
+abstract class Tools extends Items {
 
-class Tools {
+    private $recipe = array();
 
-    private static $highestID;
-
-    public $id;
+    private $material;
 
     function __construct() {
-        self::$highestID++;
-        $this->id = self::$highestID;
+        
     }
 
 }
