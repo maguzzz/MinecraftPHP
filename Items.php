@@ -10,6 +10,9 @@ abstract class Items {
 
     protected $name;
 
+    private $hasRecipe; //No Current Use
+    private $recipe = ["","","","","","","","",""];
+
     function __construct(){
         self::$highestId++;
         $this->id = self::$highestId;
