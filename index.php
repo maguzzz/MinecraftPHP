@@ -1,8 +1,6 @@
 <?php
+include_once('Parents/IncludeItems.php');
 
-include_once('Blocks/Blocks.php');
-include_once('Tools/Tools.php');
-include_once('Tools/Pickaxe.php');
 
 $woodenPickaxe1 = new Pickaxe();
 $goldenPickaxe1 = new Pickaxe();

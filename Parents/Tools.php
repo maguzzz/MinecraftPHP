@@ -1,5 +1,5 @@
 <?php
-include_once('./Items.php');
+include_once('Items.php');
 abstract class Tools extends Items {
 
     

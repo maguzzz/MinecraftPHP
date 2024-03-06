@@ -10,7 +10,7 @@ abstract class Items {
 
     protected $name;
 
-    private $hasRecipe; //No Current Use
+    private $hasRecipe; //No Current 
     private $recipe = ["","","","","","","","",""];
 
     function __construct(){
