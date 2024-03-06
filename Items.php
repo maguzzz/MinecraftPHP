@@ -9,13 +9,16 @@ abstract class Items{
 
     protected $name;
 
-    protected $maxcount;
+    protected $maxcount = 64;
 
     function __construct($id){
         self::$highestId++;
         $this->id = self::$highestId;
     }
 
+    protected function setMaxCount($count){
+        $this->maxcount = $count;  
+    }
     public function getId(){
         return $this->id;
     }
