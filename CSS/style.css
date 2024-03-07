@@ -1,31 +1,61 @@
-body, html {
+body,
+html {
     margin: 0;
     padding: 0;
     height: 100%;
     font-family: Arial, Helvetica, sans-serif;
     overflow: hidden;
     background-color: #8F9C73;
-  }
-  
-  #canvas-container {
+}
+
+#canvas-container {
     width: 100vw;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  .overAll{
+}
+
+.overAll {
+    right: 2em;
     position: absolute;
     margin: 2em;
     width: auto;
     height: auto;
-  }
+}
 
-  #myCanvas{
+#myCanvas {
     width: 100vw;
     height: 100vh;
-  }
-  .custom-cursor {
-    cursor:crosshair;
-  }
-  
+}
+
+.custom-cursor {
+    cursor: crosshair;
+}
+
+#inventoryContainer{
+    margin: 2em;
+    min-width: 40em;
+    width: auto;
+    height: 6.5em;
+    position: absolute;
+}
+
+.singleItem{
+    float: left;
+    display: flex;
+    width: 6.5em;
+    height: 100%;
+    background-color: #D9D9D9;
+    margin-left: 1em;
+}
+
+.singleItem p{
+    float: right;
+    display: flex;
+    margin: 0;
+    padding-bottom: .2em;
+    font-size: 1.5em;
+    padding-left: 3.4em;
+    align-items: flex-end;
+}

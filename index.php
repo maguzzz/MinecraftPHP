@@ -16,20 +16,20 @@ $tool->initializeTool(Materials::WOOD);
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/style.css">
-    <title>2D Movement with Buttons</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="CSS/style.css">
+  <title>2D Movement with Buttons</title>
 </head>
 
 <body>
-<div class="overAll">
+  <div class="overAll">
     <h1 id="oretype">______</h1>
-  <?php
-
-
-  ?>
   </div>
+  
+  <div id="inventoryContainer">
+  </div>
+
   <div id="canvas-container">
     <canvas id="myCanvas" width="1880px" height="900px"></canvas>
   </div>
