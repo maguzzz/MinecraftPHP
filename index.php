@@ -30,7 +30,7 @@ $hand->initializeTool(Materials::HAND);
 
 <body>
 <div class="overAll">
-    <h1>Hello</h1>
+    <h1 id="oretype">______</h1>
   <?php
 
             $hotbar->addItem($axe);
@@ -45,7 +45,7 @@ $hand->initializeTool(Materials::HAND);
   ?>
   </div>
   <div id="canvas-container">
-    <canvas id="myCanvas" width="800" height="600"></canvas>
+    <canvas id="myCanvas" width="1880px" height="900px"></canvas>
   </div>
   <script src="UserInput.js"></script>
 

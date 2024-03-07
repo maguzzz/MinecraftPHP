@@ -3,6 +3,7 @@ body, html {
     padding: 0;
     height: 100%;
     overflow: hidden;
+    background-color: #8F9C73;
   }
   
   #canvas-container {
@@ -17,5 +18,17 @@ body, html {
     background-color: rgba(126, 126, 126, 0.15);
     width: 50%;
     height: 100%;
+  }
+
+  #myCanvas{
+    width: 100vw;
+    height: 100vh;
+  }
+
+  #overAll{
+    margin: 2em;
+  }
+  .custom-cursor {
+    cursor:crosshair;
   }
   

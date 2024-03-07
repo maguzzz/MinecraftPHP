@@ -1,23 +1,24 @@
 const canvas = document.getElementById('myCanvas');
 const ctx = canvas.getContext('2d');
-let x = 50;
-let y = 50;
+let x = 150;
+let y = 100;
 let speed = 10;
 let cubeSize = 40;
 
 
 function getRandomNumber(max) {
-  return Math.floor(Math.random() * (max - 0 + 1) + 0)
+  return Math.floor(Math.random() * (max - 80 + 1) + 80)
 }
 
 
 class RndmOre {
-  constructor(positionx, positiony) {
+  constructor(positionx, positiony, oretype) {
     this.x = getRandomNumber(positionx);
     this.y = getRandomNumber(positiony);
     this.width = 40;
     this.height = 40;
     this.draw();
+    this.oretype = oretype;
   }
 
   draw() {
@@ -28,12 +29,15 @@ class RndmOre {
 
 const rndmOreArray = [];
 
-rndmOreArray.push(new RndmOre(canvas.width,canvas.height));
-rndmOreArray.push(new RndmOre(canvas.width,canvas.height));
-rndmOreArray.push(new RndmOre(canvas.width,canvas.height));
-rndmOreArray.push(new RndmOre(canvas.width,canvas.height));
-rndmOreArray.push(new RndmOre(canvas.width,canvas.height));
-rndmOreArray.push(new RndmOre(canvas.width,canvas.height));
+rndmOreArray.push(new RndmOre(canvas.width, canvas.height, "coal"));
+rndmOreArray.push(new RndmOre(canvas.width, canvas.height, "wood"));
+rndmOreArray.push(new RndmOre(canvas.width, canvas.height, "coal"));
+rndmOreArray.push(new RndmOre(canvas.width, canvas.height, "stone"));
+rndmOreArray.push(new RndmOre(canvas.width, canvas.height, "coal"));
+rndmOreArray.push(new RndmOre(canvas.width, canvas.height, "diamond"));
+rndmOreArray.push(new RndmOre(canvas.width, canvas.height, "coal"));
+rndmOreArray.push(new RndmOre(canvas.width, canvas.height, "iron"));
+rndmOreArray.push(new RndmOre(canvas.width, canvas.height, "coal"));
 
 
 function drawSquare() {
@@ -105,6 +109,43 @@ drawSquare();
 resizeCanvas();
 
 window.addEventListener('resize', resizeCanvas);
+
+canvas.addEventListener('mousemove', handleMouseMove);
+
+function handleMouseMove(event) {
+  var element = document.getElementById("myCanvas");
+
+  var mouseX = event.clientX - element.getBoundingClientRect().left;
+  var mouseY = event.clientY - element.getBoundingClientRect().top;
+
+  var oreType = getOreType(mouseX, mouseY);
+
+  if (oreType) {
+    element.classList.add("custom-cursor");
+    document.getElementById("oretype").textContent = oreType;
+  } else {
+    element.classList.remove("custom-cursor");
+  }
+}
+
+
+function getOreType(mouseX, mouseY) {
+  var foundOre = rndmOreArray.find((ore) => {
+    var canvasItemX = ore.x;
+    var canvasItemY = ore.y;
+    var canvasItemWidth = 40;
+    var canvasItemHeight = 40;
+
+    return (
+      mouseX >= canvasItemX &&
+      mouseX <= canvasItemX + canvasItemWidth &&
+      mouseY >= canvasItemY &&
+      mouseY <= canvasItemY + canvasItemHeight
+    );
+  });
+
+  return foundOre ? foundOre.oretype : null;
+}
 
 document.addEventListener('keydown', (event) => {
   if (event.code === 'KeyA') {
