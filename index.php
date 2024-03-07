@@ -1,20 +1,14 @@
 <?php
 include_once('Parents/IncludeItems.php');
 include_once('./Hotbar.php');
+include_once('Blocks/Grass.php');
 
 $hotbar = new Hotbar();
 
-$axe = new Axe();
-$axe->initializeTool(Materials::DIAMOND);
+$grass = new Grass();
 
-$shovel = new Shovel();
-$shovel->initializeTool(Materials::WOOD);
-
-$pickaxe = new Pickaxe();
-$pickaxe->initializeTool(Materials::GOLD);
-
-$hand = new Hand();
-$hand->initializeTool(Materials::HAND);
+$tool = new Pickaxe();
+$tool->initializeTool(Materials::WOOD);
 
 ?>
 
@@ -29,25 +23,17 @@ $hand->initializeTool(Materials::HAND);
 </head>
 
 <body>
-<div class="overAll">
-    <h1>Hello</h1>
-  <?php
+    <div class="overAll">
+        <?php
 
-            $hotbar->addItem($axe);
-            $hotbar->addItem($hand);
-            $hotbar->addItem($shovel);
-            $hotbar->addItem($pickaxe);
-
-            foreach($hotbar->getHotbar() as $key => $value) {
-                echo 'Key: '.$key.'; Value: '.$value;
-                echo '<br>';
-            }
-  ?>
-  </div>
-  <div id="canvas-container">
-    <canvas id="myCanvas" width="800" height="600"></canvas>
-  </div>
-  <script src="UserInput.js"></script>
+        $grass->destroyBlock($tool);
+        
+        ?>
+    </div>
+    <div id="canvas-container">
+        <canvas id="myCanvas" width="800" height="600"></canvas>
+    </div>
+    <script src="UserInput.js"></script>
 
 </body>
 
