@@ -12,13 +12,20 @@ function getRandomNumber(max) {
 
 
 class RndmOre {
+  static highestId = 0;
+
   constructor(positionx, positiony, oretype) {
+    
+    RndmOre.highestId++;
+    this.id = RndmOre.highestId
+
     this.x = getRandomNumber(positionx);
     this.y = getRandomNumber(positiony);
     this.width = 40;
     this.height = 40;
     this.draw();
     this.oretype = oretype;
+
     switch (this.oretype) {
       case "coal":
         this.orecolor = "black";
@@ -166,7 +173,7 @@ function getOreType(mouseX, mouseY) {
     );
   });
 
-  return foundOre ? foundOre.oretype : null;
+  return foundOre ? foundOre.oretype + foundOre.id : null;
 }
 
 
