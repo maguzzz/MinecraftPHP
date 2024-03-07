@@ -19,7 +19,7 @@ class RndmOre {
     this.height = 40;
     this.draw();
     this.oretype = oretype;
-    switch(this.oretype) {
+    switch (this.oretype) {
       case "coal":
         this.orecolor = "black";
         break;
@@ -36,7 +36,7 @@ class RndmOre {
         this.orecolor = "#c9c9c9";
         break;
       case "diamond":
-        this.orecolor = "#00ccff";
+        this.orecolor = "#94E1E5";
         break;
       default:
         this.orecolor = "red";
@@ -168,6 +168,32 @@ function getOreType(mouseX, mouseY) {
 
   return foundOre ? foundOre.oretype : null;
 }
+
+
+function addInvSlot(containerId, count) {
+  var container = document.getElementById(containerId);
+  for (var i = 1; i <= count; i++) {
+
+    var newDiv = document.createElement('div');
+    newDiv.className = 'singleItem';
+    var newParagraph = document.createElement('p');
+    newParagraph.textContent = i;
+    newDiv.appendChild(newParagraph);
+    container.appendChild(newDiv);
+  }
+}
+addInvSlot('inventoryContainer', 5);
+
+/*
+function sendData(data) {
+  const xmlhttp = new XMLHttpRequest();
+  xmlhttp.onload = function () {
+    document.getElementById("txtHint").innerHTML = this.responseText;
+  }
+  xmlhttp.open("GET", "index.php?q=" + data);
+  xmlhttp.send();
+}
+*/
 
 document.addEventListener('keydown', (event) => {
   if (event.code === 'KeyA') {
