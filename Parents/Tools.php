@@ -3,6 +3,7 @@ include_once('Items.php');
 
 interface Materials
 {
+    public const HAND = 'hand';
     public const WOOD = 'wood';
     public const STONE = 'stone';
     public const IRON = 'iron';
@@ -61,7 +62,9 @@ abstract class Tools extends Items {
 
         $this->setMaterial($material);
 
-        $this->name = ucfirst(strtolower($this->getMaterial())).' '.$this->name;
+        if ($this->getMaterial() != Materials::HAND) {
+            $this->name = ucfirst(strtolower($this->getMaterial())).' '.$this->name;
+        }
 
         $this->recipeMaterialReplace($this->recipeTemplate);
 

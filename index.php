@@ -4,6 +4,8 @@ include_once('Parents/IncludeItems.php');
 
 $pickaxe = new Pickaxe();
 $pickaxe->initializeTool(Materials::WOOD);
+$hand = new Hand();
+$hand->initializeTool(Materials::HAND);
 
 ?>
 
