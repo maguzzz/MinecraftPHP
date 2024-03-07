@@ -1,20 +1,14 @@
 <?php
 include_once('Parents/IncludeItems.php');
 include_once('./Hotbar.php');
+include_once('Blocks/Grass.php');
 
 $hotbar = new Hotbar();
 
-$axe = new Axe();
-$axe->initializeTool(Materials::DIAMOND);
+$grass = new Grass();
 
-$shovel = new Shovel();
-$shovel->initializeTool(Materials::WOOD);
-
-$pickaxe = new Pickaxe();
-$pickaxe->initializeTool(Materials::GOLD);
-
-$hand = new Hand();
-$hand->initializeTool(Materials::HAND);
+$tool = new Pickaxe();
+$tool->initializeTool(Materials::WOOD);
 
 ?>
 
@@ -37,6 +31,7 @@ $hand->initializeTool(Materials::HAND);
             $hotbar->addItem($hand);
             $hotbar->addItem($shovel);
             $hotbar->addItem($pickaxe);
+            $grass->destroyBlock($tool);
 
             foreach($hotbar->getHotbar() as $key => $value) {
                 echo 'Key: '.$key.'; Value: '.$value;
