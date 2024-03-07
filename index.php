@@ -24,12 +24,15 @@ $hand->initializeTool(Materials::HAND);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="UserInput.js">
-    </script>
-    <title>Big Block</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>2D Movement with Buttons</title>
 </head>
-    <body>
-        <?php
+
+<body>
+<div class="overAll">
+    <h1>Hello</h1>
+  <?php
+
             $hotbar->addItem($axe);
             $hotbar->addItem($hand);
             $hotbar->addItem($shovel);
@@ -39,7 +42,13 @@ $hand->initializeTool(Materials::HAND);
                 echo 'Key: '.$key.'; Value: '.$value;
                 echo '<br>';
             }
+  ?>
+  </div>
+  <div id="canvas-container">
+    <canvas id="myCanvas" width="800" height="600"></canvas>
+  </div>
+  <script src="UserInput.js"></script>
 
-        ?>
-    </body>
+</body>
+
 </html>

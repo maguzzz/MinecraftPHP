@@ -1,0 +1,21 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  #canvas-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .overAll{
+    position: absolute;
+    background-color: rgba(126, 126, 126, 0.15);
+    width: 50%;
+    height: 100%;
+  }
+  
