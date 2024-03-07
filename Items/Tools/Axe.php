@@ -8,7 +8,8 @@ class Axe extends Tools {
         
         parent::__construct();
 
-        $this->setName("Axe");
+        $this->setDisplayName("Axe");
+        $this->setItemname("axe");
 
         $this->setRecipeTemplate([["", "MAT", "MAT"], 
                                   ["", "stick", "MAT"], 

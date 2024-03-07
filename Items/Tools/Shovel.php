@@ -8,7 +8,8 @@ class Shovel extends Tools {
         
         parent::__construct();
 
-        $this->setName("Shovel");
+        $this->setDisplayName("Shovel");
+        $this->setItemname("shovel");
 
         $this->setRecipeTemplate([["", "MAT", ""], 
                                   ["", "stick", ""], 

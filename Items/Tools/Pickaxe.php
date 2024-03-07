@@ -8,7 +8,8 @@ class Pickaxe extends Tools {
         
         parent::__construct();
 
-        $this->setName("Pickaxe");
+        $this->setDisplayName("Pickaxe");
+        $this->setItemname("pickaxe");
 
         $this->setRecipeTemplate([["MAT", "MAT", "MAT"], 
                                   ["", "stick", ""], 

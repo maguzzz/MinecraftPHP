@@ -8,7 +8,8 @@ class Hoe extends Tools {
         
         parent::__construct();
 
-        $this->setName("Axe");
+        $this->setDisplayName("Hoe");
+        $this->setItemname("hoe");
 
         $this->setRecipeTemplate([["", "MAT", "MAT"], 
                                   ["", "stick", ""], 

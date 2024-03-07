@@ -63,7 +63,8 @@ abstract class Tools extends Items {
         $this->setMaterial($material);
 
         if ($this->getMaterial() != Materials::HAND) {
-            $this->name = ucfirst(strtolower($this->getMaterial())).' '.$this->name;
+            $this->setDisplayName(ucfirst(strtolower($this->getMaterial())).' '.$this->getDisplayName());
+            $this->setItemName(strtolower($this->getMaterial().'_'.$this->getItemName()));
         }
 
         $this->recipeMaterialReplace($this->recipeTemplate);

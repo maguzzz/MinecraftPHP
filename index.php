@@ -1,9 +1,18 @@
 <?php
 include_once('Parents/IncludeItems.php');
+include_once('./Hotbar.php');
 
+$hotbar = new Hotbar();
+
+$axe = new Axe();
+$axe->initializeTool(Materials::DIAMOND);
+
+$shovel = new Shovel();
+$shovel->initializeTool(Materials::WOOD);
 
 $pickaxe = new Pickaxe();
-$pickaxe->initializeTool(Materials::WOOD);
+$pickaxe->initializeTool(Materials::GOLD);
+
 $hand = new Hand();
 $hand->initializeTool(Materials::HAND);
 
@@ -21,9 +30,16 @@ $hand->initializeTool(Materials::HAND);
 </head>
     <body>
         <?php
-            echo '<pre>';
-            var_dump($hand->getName());
-            echo '</pre>';
+            $hotbar->addItem($axe);
+            $hotbar->addItem($hand);
+            $hotbar->addItem($shovel);
+            $hotbar->addItem($pickaxe);
+
+            foreach($hotbar->getHotbar() as $key => $value) {
+                echo 'Key: '.$key.'; Value: '.$value;
+                echo '<br>';
+            }
+
         ?>
     </body>
 </html>

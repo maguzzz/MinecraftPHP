@@ -2,13 +2,16 @@
 
 abstract class Items {
 
+    private static $instances = [];
+
     private static $highestId;
     protected $id;
 
     protected $maxcount = 64;
     protected $count;
 
-    protected $name;
+    protected $displayName;
+    protected $itemName;
 
     protected $hasRecipe; //No Current 
     protected $recipe = [["", "", ""], 
@@ -16,6 +19,8 @@ abstract class Items {
                          ["", "", ""]];
 
     function __construct(){
+        self::$instances[$this->id] = $this;
+
         self::$highestId++;
         $this->id = self::$highestId;
     }
@@ -48,12 +53,20 @@ abstract class Items {
         }
     }
 
-    public function setName($name) {
-        $this->name = $name;
+    public function setDisplayName($displayName) {
+        $this->displayName = $displayName;
     }
 
-    public function getName() {
-        return $this->name;
+    public function getDisplayName() {
+        return $this->displayName;
+    }
+
+    public function setItemName($itemName) {
+        $this->itemName = $itemName;
+    }
+
+    public function getItemName() {
+        return $this->itemName;
     }
 
     public function hasRecipe() {
@@ -68,6 +81,22 @@ abstract class Items {
     }
 
     public function getRecipe() {
-        return $this->recipe;
+        return $this->hasRecipe() ? $this->recipe : null;
+    }
+
+    public static function getItemById($id) {
+        foreach (self::$instances as $instance) {
+            if ($instance->getId() === $id) {
+                return $instance;
+            }
+        }
+        return null;
+    }
+
+    public static function itemExists($item) {
+        if (Items::getItemById($item->getId())) {
+            return false;
+        }
+        return true;
     }
 }
