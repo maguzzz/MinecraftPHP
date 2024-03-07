@@ -4,6 +4,8 @@ include_once('Parents/IncludeItems.php');
 
 $pickaxe = new Pickaxe();
 $pickaxe->initializeTool(Materials::WOOD);
+$hand = new Hand();
+$hand->initializeTool(Materials::HAND);
 
 ?>
 
@@ -17,11 +19,10 @@ $pickaxe->initializeTool(Materials::WOOD);
     </script>
     <title>Big Block</title>
 </head>
-
     <body>
         <?php
             echo '<pre>';
-            var_dump($pickaxe->getRecipe());
+            var_dump($hand->getName());
             echo '</pre>';
         ?>
     </body>

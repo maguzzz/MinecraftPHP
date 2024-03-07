@@ -8,7 +8,7 @@ class Hand extends Tools {
         
         parent::__construct();
 
-        $this->setName("");
+        $this->setName("Hand");
 
         $this->setRecipeTemplate([["", "", ""], 
                                   ["", "", ""], 
