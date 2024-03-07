@@ -1,8 +1,7 @@
 <?php
-
 include_once('Tools.php');
 
-class Blocks implements Materials {
+abstract class Blocks implements Materials {
 
     protected $durablity;
     protected $tool;
@@ -14,6 +13,16 @@ class Blocks implements Materials {
 
         $this->speedByMaterial = [Materials::WOOD => 1.5, Materials::STONE => 1.3, Materials::IRON => 1, Materials::GOLD => 0.9, Materials::DIAMOND => 0.5, Materials::HAND => $this->defaultSpeed];
 
+    }
+
+    public function destroyBlock(Tools $tool) {
+        if (str_ends_with($tool->getItemName(), '_'.$this->getTool())) {
+            $this->calcBreakSpeed = $this->durablity * $this->speedByMaterial[$tool->getMaterial()];
+        } else {
+            $this->calcBreakSpeed = $this->defaultSpeed;
+        }
+
+        echo $this->calcBreakSpeed;
     }
 
 

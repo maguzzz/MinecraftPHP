@@ -28,14 +28,4 @@ class Grass extends Blocks {
 
     */
 
-    public function destroyBlock(Tools $tool) {
-        if (str_ends_with($tool->getItemName(), $this->getTool())) {
-            $this->calcBreakSpeed = $this->durablity * $this->speedByMaterial[$tool->getMaterial()];
-        } else {
-            $this->calcBreakSpeed = $this->defaultSpeed;
-        }
-
-        echo $this->calcBreakSpeed;
-    }
-
 }
