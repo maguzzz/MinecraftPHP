@@ -19,10 +19,32 @@ class RndmOre {
     this.height = 40;
     this.draw();
     this.oretype = oretype;
+    switch(this.oretype) {
+      case "coal":
+        this.orecolor = "black";
+        break;
+      case "iron":
+        this.orecolor = "black";
+        break;
+      case "wood":
+        this.orecolor = "#8f6443";
+        break;
+      case "stone":
+        this.orecolor = "gray";
+        break;
+      case "iron":
+        this.orecolor = "#c9c9c9";
+        break;
+      case "diamond":
+        this.orecolor = "#00ccff";
+        break;
+      default:
+        this.orecolor = "red";
+    }
   }
 
   draw() {
-    ctx.fillStyle = 'blue';
+    ctx.fillStyle = this.orecolor;
     ctx.fillRect(this.x, this.y, this.width, this.height);
   }
 }
@@ -50,7 +72,7 @@ function drawSquare() {
     }
   });
 
-  ctx.fillStyle = 'black';
+  ctx.fillStyle = '#ffffff';
   ctx.fillRect(x, y, cubeSize, cubeSize);
 }
 

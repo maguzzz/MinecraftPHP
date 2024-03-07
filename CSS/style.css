@@ -15,18 +15,14 @@ body, html {
   }
   .overAll{
     position: absolute;
-    background-color: rgba(126, 126, 126, 0.15);
-    width: 50%;
-    height: 100%;
+    margin: 2em;
+    width: auto;
+    height: auto;
   }
 
   #myCanvas{
     width: 100vw;
     height: 100vh;
-  }
-
-  #overAll{
-    margin: 2em;
   }
   .custom-cursor {
     cursor:crosshair;

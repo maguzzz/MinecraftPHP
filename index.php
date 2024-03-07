@@ -27,16 +27,7 @@ $tool->initializeTool(Materials::WOOD);
     <h1 id="oretype">______</h1>
   <?php
 
-            $hotbar->addItem($axe);
-            $hotbar->addItem($hand);
-            $hotbar->addItem($shovel);
-            $hotbar->addItem($pickaxe);
-            $grass->destroyBlock($tool);
 
-            foreach($hotbar->getHotbar() as $key => $value) {
-                echo 'Key: '.$key.'; Value: '.$value;
-                echo '<br>';
-            }
   ?>
   </div>
   <div id="canvas-container">
