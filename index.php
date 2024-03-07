@@ -13,16 +13,22 @@ $pickaxe->initializeTool(Materials::WOOD);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="UserInput.js">
-    </script>
-    <title>Big Block</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>2D Movement with Buttons</title>
 </head>
 
-    <body>
-        <?php
-            echo '<pre>';
-            var_dump($pickaxe->getRecipe());
-            echo '</pre>';
-        ?>
-    </body>
+<body>
+<div class="overAll">
+    <h1>Hello</h1>
+  <?php
+    echo $pickaxe->getName();
+  ?>
+  </div>
+  <div id="canvas-container">
+    <canvas id="myCanvas" width="800" height="600"></canvas>
+  </div>
+  <script src="UserInput.js"></script>
+
+</body>
+
 </html>
