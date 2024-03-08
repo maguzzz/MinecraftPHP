@@ -237,5 +237,4 @@ document.addEventListener('keydown', (event) => {
   } else if (event.code === 'KeyS') {
     moveDown();
   }
-  console.log("event.code")
 });
