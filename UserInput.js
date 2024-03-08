@@ -135,7 +135,7 @@ function oreClick() {
 function sendData(inputData) {
   $.ajax({
     type: "POST",
-    url: "Ajax/BreakCall.php",
+    url: "BreakCall.php",
     data: { data: inputData },
     success: function(response) {
       console.log(response);
