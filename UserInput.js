@@ -31,7 +31,7 @@ class RndmOre {
         this.orecolor = "black";
         break;
       case "iron":
-        this.orecolor = "black";
+        this.orecolor = "#aba595";
         break;
       case "wood":
         this.orecolor = "#8f6443";
@@ -57,17 +57,23 @@ class RndmOre {
 }
 
 const rndmOreArray = [];
-
-rndmOreArray.push(new RndmOre(canvas.width, canvas.height, "coal"));
 rndmOreArray.push(new RndmOre(canvas.width, canvas.height, "wood"));
-rndmOreArray.push(new RndmOre(canvas.width, canvas.height, "coal"));
-rndmOreArray.push(new RndmOre(canvas.width, canvas.height, "stone"));
-rndmOreArray.push(new RndmOre(canvas.width, canvas.height, "coal"));
+rndmOreArray.push(new RndmOre(canvas.width, canvas.height, "wood"));
+rndmOreArray.push(new RndmOre(canvas.width, canvas.height, "wood"));
+rndmOreArray.push(new RndmOre(canvas.width, canvas.height, "stone"))
+rndmOreArray.push(new RndmOre(canvas.width, canvas.height, "stone"))
+rndmOreArray.push(new RndmOre(canvas.width, canvas.height, "stone"))
+rndmOreArray.push(new RndmOre(canvas.width, canvas.height, "stone"))
+rndmOreArray.push(new RndmOre(canvas.width, canvas.height, "iron"));
+rndmOreArray.push(new RndmOre(canvas.width, canvas.height, "iron"));
+rndmOreArray.push(new RndmOre(canvas.width, canvas.height, "iron"));
+rndmOreArray.push(new RndmOre(canvas.width, canvas.height, "iron"));
 rndmOreArray.push(new RndmOre(canvas.width, canvas.height, "diamond"));
 rndmOreArray.push(new RndmOre(canvas.width, canvas.height, "coal"));
-rndmOreArray.push(new RndmOre(canvas.width, canvas.height, "iron"));
 rndmOreArray.push(new RndmOre(canvas.width, canvas.height, "coal"));
-
+rndmOreArray.push(new RndmOre(canvas.width, canvas.height, "coal"));;
+rndmOreArray.push(new RndmOre(canvas.width, canvas.height, "coal"));
+rndmOreArray.push(new RndmOre(canvas.width, canvas.height, "coal"));
 
 function drawSquare() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -81,35 +87,6 @@ function drawSquare() {
 
   ctx.fillStyle = '#ffffff';
   ctx.fillRect(x, y, cubeSize, cubeSize);
-}
-
-
-function moveLeft() {
-  if (!checkCollision(x - speed, y)) {
-    x -= speed;
-    drawSquare();
-  }
-}
-
-function moveRight() {
-  if (!checkCollision(x + speed, y)) {
-    x += speed;
-    drawSquare();
-  }
-}
-
-function moveUp() {
-  if (!checkCollision(x, y - speed)) {
-    y -= speed;
-    drawSquare();
-  }
-}
-
-function moveDown() {
-  if (!checkCollision(x, y + speed)) {
-    y += speed;
-    drawSquare();
-  }
 }
 
 function checkCollision(newX, newY) {
@@ -191,16 +168,48 @@ function addInvSlot(containerId, count) {
 }
 addInvSlot('inventoryContainer', 5);
 
-/*
-function sendData(data) {
-  const xmlhttp = new XMLHttpRequest();
-  xmlhttp.onload = function () {
-    document.getElementById("txtHint").innerHTML = this.responseText;
-  }
-  xmlhttp.open("GET", "index.php?q=" + data);
-  xmlhttp.send();
+
+function callPHP(params) {
+  var httpc = new XMLHttpRequest(); // simplified for clarity
+  var url = "Ajax/BreakCall.php";
+  httpc.open("POST", url, true); // sending as POST
+
+  httpc.onreadystatechange = function() { //Call a function when the state changes.
+      if(httpc.readyState == 4 && httpc.status == 200) { // complete and no errors
+          alert(httpc.responseText); // some processing here, or whatever you want to do with the response
+      }
+  };
+  httpc.send(params);
 }
-*/
+
+
+function moveLeft() {
+  if (!checkCollision(x - speed, y)) {
+    x -= speed;
+    drawSquare();
+  }
+}
+
+function moveRight() {
+  if (!checkCollision(x + speed, y)) {
+    x += speed;
+    drawSquare();
+  }
+}
+
+function moveUp() {
+  if (!checkCollision(x, y - speed)) {
+    y -= speed;
+    drawSquare();
+  }
+}
+
+function moveDown() {
+  if (!checkCollision(x, y + speed)) {
+    y += speed;
+    drawSquare();
+  }
+}
 
 document.addEventListener('keydown', (event) => {
   if (event.code === 'KeyA') {
@@ -212,4 +221,5 @@ document.addEventListener('keydown', (event) => {
   } else if (event.code === 'KeyS') {
     moveDown();
   }
+  console.log("event.code")
 });
