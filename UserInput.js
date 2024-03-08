@@ -10,6 +10,11 @@ function getRandomNumber(max) {
   return Math.floor(Math.random() * (max - 80 + 1) + 80)
 }
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
 class RndmOre {
   static highestId = 0;
 
@@ -119,36 +124,38 @@ canvas.addEventListener('mousemove', handleMouseMove);
 
 
 function oreClick() {
-  if(document.getElementById("oretype").textContent != ""){
+  if (document.getElementById("oretype").textContent !== "") {
     document.addEventListener('mousedown', function (event) {
+
       if (event.button === 0) {
-        console.log("Click")
-        $oretype = document.getElementById("oretype").textContent;
-        sendData($oretype)
-        
+        var oretype = document.getElementById("oretype").textContent;
+
+        sendData(oretype, function (response) {
+          var timeToBreakBlock = response[0];
+
+          setTimeout(function () {
+            console.log(timeToBreakBlock);
+            console.log("Test")
+          }, timeToBreakBlock * 1000);
+        });
       }
     });
   }
-
 };
 
-function sendData(inputData) {
+
+function sendData(inputData, callback) {
   $.ajax({
     type: "POST",
     url: "BreakCall.php",
     data: { data: inputData },
-    success: function(response) {
-      console.log(response);
+    success: function (response) {
+      callback(response);
     },
-    error: function(error) {
-      console.log("Error:", error);
-    }
   });
 }
 
 oreClick();
-
-
 
 function handleMouseMove(event) {
   var element = document.getElementById("myCanvas");
