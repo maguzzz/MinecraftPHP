@@ -14,13 +14,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         case 'coal':
             $block = new Coal();
             break;
-        case Materials::DIAMOND:
+        case 'diamond':
+            $block = new Diamond();
             break;
-        case Materials::IRON:
+        case 'iron':
+            $block = new Iron();
             break;
-        case Materials::STONE:
+        case 'stone':
+            $block = new Stone();
             break;
-        case Materials::WOOD:
+        case 'wood':
+            $block = new Wood();
             break;
         default:
             $block = new Grass();
