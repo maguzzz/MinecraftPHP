@@ -23,8 +23,9 @@ html {
 .overAll {
     right: 2em;
     position: absolute;
-    margin: 2em;
     width: auto;
+    min-width: 15em;
+    color: white;
     height: auto;
 }
 
@@ -49,6 +50,17 @@ html {
     width: auto;
     height: 6.5em;
     position: absolute;
+}
+
+#breakobject {
+    margin: 0%;
+    height: 100%;
+    float: left;
+}
+
+.fade-in-element {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
 
 .singleItem{

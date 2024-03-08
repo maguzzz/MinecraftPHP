@@ -5,13 +5,13 @@ let y = 100;
 let speed = 10;
 let cubeSize = 40;
 
-document.addEventListener('mousemove', function(e) {
+document.addEventListener('mousemove', function (e) {
   var customCursor = document.getElementById('customCursor');
   customCursor.style.left = e.pageX + "px";
   customCursor.style.top = e.pageY + "px";
 });
 
-document.addEventListener('mouseover', function(e) {
+document.addEventListener('mouseover', function (e) {
 
 });
 
@@ -152,6 +152,44 @@ function oreClick() {
     });
   }
 };
+
+function oreClick() {
+  var oretypeElement = document.getElementById("oretype");
+
+  if (oretypeElement.textContent !== "") {
+    document.addEventListener('mousedown', function (event) {
+      if (event.button === 0) {
+        var oretype = oretypeElement.textContent;
+
+        sendData(oretype, function (response) {
+          var timeToBreakBlock = response[0];
+          console.log(timeToBreakBlock);
+
+          timeToBreakBlock++;
+
+          const countdown = setInterval(() => {
+            var beakAnimation = document.getElementById("breakobject");
+            beakAnimation.classList.remove("fade-in-element");
+            const pickedOre = oretype;
+            beakAnimation.textContent = timeToBreakBlock;
+
+            if (timeToBreakBlock === 1) {
+              clearInterval(countdown);
+              setTimeout(function () {
+                beakAnimation.textContent = "Broke: " + pickedOre;
+              }, timeToBreakBlock * 1000);
+              setTimeout(function () {
+                beakAnimation.classList.add("fade-in-element");
+              }, timeToBreakBlock * 3000);
+            } else {
+              timeToBreakBlock--;
+            }
+          }, 1000);
+        });
+      }
+    });
+  }
+}
 
 
 function sendData(inputData, callback) {

@@ -27,7 +27,8 @@ $hotbar->addItem($tool);
 <body>
   <div id="customCursor"><img src="CSS/<?= $tool->getItemName() ?>.png" alt="Cursor"></div>
   <div class="overAll">
-    <h1 id="oretype">______</h1>
+    <h1 id="oretype"> </h1>
+    <h1 id="breakobject"> </h1>
   </div>
   
   <div id="inventoryContainer">
