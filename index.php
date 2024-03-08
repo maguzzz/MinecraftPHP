@@ -5,6 +5,8 @@ include_once('./Hotbar.php');
 
 $hotbar = new Hotbar();
 
+
+
 ?>
 
 <!DOCTYPE html>
