@@ -10,12 +10,11 @@ function getRandomNumber(max) {
   return Math.floor(Math.random() * (max - 80 + 1) + 80)
 }
 
-
 class RndmOre {
   static highestId = 0;
 
   constructor(positionx, positiony, oretype) {
-    
+
     RndmOre.highestId++;
     this.id = RndmOre.highestId
 
@@ -118,6 +117,36 @@ window.addEventListener('resize', resizeCanvas);
 
 canvas.addEventListener('mousemove', handleMouseMove);
 
+
+function oreClick() {
+  if(document.getElementById("oretype").textContent != ""){
+    document.addEventListener('mousedown', function (event) {
+      if (event.button === 0) {
+        console.log("Click")
+        $oretype = document.getElementById("oretype").textContent;
+        callPHP($oretype)
+        
+      }
+    });
+  }
+
+};
+
+function callPHP(params) {
+  console.log("sending DAta : " + params);
+  var httpc = new XMLHttpRequest(); // simplified for clarity
+  var url = "Ajax/BreakCall.php";
+  httpc.open("POST", url, true); // sending as POST
+
+  httpc.onreadystatechange = function () { //Call a function when the state changes.
+    if (httpc.readyState == 4 && httpc.status == 200) { // complete and no errors
+    }
+  };
+  httpc.send(params);
+}
+
+oreClick();
+
 function handleMouseMove(event) {
   var element = document.getElementById("myCanvas");
 
@@ -130,10 +159,10 @@ function handleMouseMove(event) {
     element.classList.add("custom-cursor");
     document.getElementById("oretype").textContent = oreType;
   } else {
+    document.getElementById("oretype").textContent = "";
     element.classList.remove("custom-cursor");
   }
 }
-
 
 function getOreType(mouseX, mouseY) {
   var foundOre = rndmOreArray.find((ore) => {
@@ -150,7 +179,7 @@ function getOreType(mouseX, mouseY) {
     );
   });
 
-  return foundOre ? foundOre.oretype + foundOre.id : null;
+  return foundOre ? foundOre.oretype : null;
 }
 
 
@@ -168,19 +197,6 @@ function addInvSlot(containerId, count) {
 }
 addInvSlot('inventoryContainer', 5);
 
-
-function callPHP(params) {
-  var httpc = new XMLHttpRequest(); // simplified for clarity
-  var url = "Ajax/BreakCall.php";
-  httpc.open("POST", url, true); // sending as POST
-
-  httpc.onreadystatechange = function() { //Call a function when the state changes.
-      if(httpc.readyState == 4 && httpc.status == 200) { // complete and no errors
-          alert(httpc.responseText); // some processing here, or whatever you want to do with the response
-      }
-  };
-  httpc.send(params);
-}
 
 
 function moveLeft() {
