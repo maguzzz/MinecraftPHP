@@ -1,14 +1,9 @@
 <?php
 include_once('Parents/IncludeItems.php');
+include_once('Parents/IncludeBlocks.php');
 include_once('./Hotbar.php');
-include_once('Blocks/Grass.php');
 
 $hotbar = new Hotbar();
-
-$grass = new Grass();
-
-$tool = new Pickaxe();
-$tool->initializeTool(Materials::WOOD);
 
 ?>
 
