@@ -5,6 +5,15 @@ let y = 100;
 let speed = 10;
 let cubeSize = 40;
 
+document.addEventListener('mousemove', function(e) {
+  var customCursor = document.getElementById('customCursor');
+  customCursor.style.left = e.pageX + "px";
+  customCursor.style.top = e.pageY + "px";
+});
+
+document.addEventListener('mouseover', function(e) {
+
+});
 
 function getRandomNumber(max) {
   return Math.floor(Math.random() * (max - 80 + 1) + 80)
@@ -124,6 +133,7 @@ function oreClick() {
       if (event.button === 0) {
         console.log("Click")
         $oretype = document.getElementById("oretype").textContent;
+        
         sendData($oretype)
         
       }

@@ -6,11 +6,9 @@ include_once('./Hotbar.php');
 $hotbar = new Hotbar();
 
 $tool = new Pickaxe();
-$tool->initializeTool(Materials::STONE);
+$tool->initializeTool(Materials::IRON);
 
 $hotbar->addItem($tool);
-
-var_dump($hotbar->getHotBar());
 
 ?>
 
@@ -25,6 +23,7 @@ var_dump($hotbar->getHotBar());
 </head>
 
 <body>
+  <div id="customCursor"><img src="CSS/pickaxe.png" alt="Cursor"></div>
   <div class="overAll">
     <h1 id="oretype">______</h1>
   </div>

@@ -29,8 +29,14 @@ html {
     height: 100vh;
 }
 
+#customCursor {
+    position: fixed;
+    pointer-events: none;
+}
+
 .custom-cursor {
     cursor: crosshair;
+    text-align: center;
 }
 
 #inventoryContainer{
