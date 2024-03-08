@@ -137,14 +137,14 @@ function oreClick() {
     document.addEventListener('mousedown', function (event) {
 
       if (event.button === 0) {
-        var oretype = document.getElementById("oretype").textContent;
+        var oretype = document.getElementById("oretype");//.textContent;
 
-        sendData(oretype, function (response) {
+        sendData(oretype.textContent, function (response) {
           var timeToBreakBlock = response[0];
 
           setTimeout(function () {
             console.log(timeToBreakBlock);
-            console.log("Test")
+            
           }, timeToBreakBlock * 1000);
         });
 
@@ -179,7 +179,7 @@ function handleMouseMove(event) {
     element.classList.add("custom-cursor");
     document.getElementById("oretype").textContent = oreType;
   } else {
-    document.getElementById("oretype").textContent = "";
+    document.getElementById("oretype").textContent  = "";
     element.classList.remove("custom-cursor");
   }
 }
@@ -199,7 +199,7 @@ function getOreType(mouseX, mouseY) {
     );
   });
 
-  return foundOre ? foundOre.oretype : null;
+  return foundOre ? foundOre.oretype + foundOre.id : null;
 }
 
 

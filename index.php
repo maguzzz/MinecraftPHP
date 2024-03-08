@@ -5,8 +5,10 @@ include_once('./Hotbar.php');
 
 $hotbar = new Hotbar();
 
-$tool = new Pickaxe();
+$tool = new Axe();
 $tool->initializeTool(Materials::IRON);
+
+echo $tool->getItemName();
 
 $hotbar->addItem($tool);
 
@@ -23,7 +25,7 @@ $hotbar->addItem($tool);
 </head>
 
 <body>
-  <div id="customCursor"><img src="CSS/pickaxe.png" alt="Cursor"></div>
+  <div id="customCursor"><img src="CSS/<?= $tool->getItemName() ?>.png" alt="Cursor"></div>
   <div class="overAll">
     <h1 id="oretype">______</h1>
   </div>

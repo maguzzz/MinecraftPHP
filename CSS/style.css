@@ -16,6 +16,10 @@ html {
     justify-content: center;
 }
 
+.invis {
+    display: none;
+}
+
 .overAll {
     right: 2em;
     position: absolute;
