@@ -62,11 +62,11 @@ abstract class Blocks implements Materials {
     }
 
 
-    public function setBreakSpeed($breakSpeed) {
+    public function setCalcBreakSpeed($breakSpeed) {
         $this->calcBreakSpeed = $breakSpeed;
     }
 
-    public function getBreakSpeed() {
+    public function getCalcBreakSpeed() {
         return $this->calcBreakSpeed;
     }
     
