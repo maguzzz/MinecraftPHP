@@ -31,6 +31,7 @@ $hotbar = new Hotbar();
     <canvas id="myCanvas" width="1880px" height="900px"></canvas>
   </div>
   <script src="UserInput.js"></script>
+  <script src="https://code.jquery.com/jquery-latest.js"></script>
 
 </body>
 

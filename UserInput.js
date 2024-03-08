@@ -124,7 +124,7 @@ function oreClick() {
       if (event.button === 0) {
         console.log("Click")
         $oretype = document.getElementById("oretype").textContent;
-        callPHP($oretype)
+        sendData($oretype)
         
       }
     });
@@ -132,20 +132,23 @@ function oreClick() {
 
 };
 
-function callPHP(params) {
-  console.log("sending DAta : " + params);
-  var httpc = new XMLHttpRequest(); // simplified for clarity
-  var url = "Ajax/BreakCall.php";
-  httpc.open("POST", url, true); // sending as POST
-
-  httpc.onreadystatechange = function () { //Call a function when the state changes.
-    if (httpc.readyState == 4 && httpc.status == 200) { // complete and no errors
+function sendData(inputData) {
+  $.ajax({
+    type: "POST",
+    url: "Ajax/BreakCall.php",
+    data: { data: inputData },
+    success: function(response) {
+      console.log(response);
+    },
+    error: function(error) {
+      console.log("Error:", error);
     }
-  };
-  httpc.send(params);
+  });
 }
 
 oreClick();
+
+
 
 function handleMouseMove(event) {
   var element = document.getElementById("myCanvas");

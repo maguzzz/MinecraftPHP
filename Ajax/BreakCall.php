@@ -1,6 +1,6 @@
 <?php
 
-include_once('./Parents/Tools.php');
+include_once('./Parents/IncludeITems.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $postData = json_decode(file_get_contents('php://input'), true);
@@ -43,3 +43,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     http_response_code(405); // Method Not Allowed
     echo "Only POST requests are allowed for this endpoint";
 }
+
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["data"])) {
+    // Retrieve the data from the AJAX request
+    $inputData = $_POST["data"];
+  
+    // Process the data or perform any necessary actions
+    // For example, you can echo the data back to the client
+    echo "Received data: " . $inputData;
+  } else {
+    // Handle the case where the request method is not POST or data is not set
+    echo "Invalid request";
+  }
