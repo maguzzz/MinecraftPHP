@@ -7,10 +7,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //$postData = json_decode(file_get_contents('php://input'), true);
     $postData = $_POST['data'];
 
-    $block;
+    //$tool = new Pickaxe();
+    //$tool->initializeTool(Materials::IRON);
 
-    $tool = new Pickaxe();
-    $tool->initializeTool(Materials::IRON);
+    $block;
 
     switch ($postData) {
         case 'coal':

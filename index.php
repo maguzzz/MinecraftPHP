@@ -5,7 +5,12 @@ include_once('./Hotbar.php');
 
 $hotbar = new Hotbar();
 
+$tool = new Pickaxe();
+$tool->initializeTool(Materials::STONE);
 
+$hotbar->addItem($tool);
+
+var_dump($hotbar->getHotBar());
 
 ?>
 

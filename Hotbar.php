@@ -17,7 +17,7 @@ class Hotbar {
             if ($this->hasEmptySlot()) {
                 foreach($this->getHotBar() as $key => $value) {
                     if ($value === '') {
-                        $this->hotBar[$key] = $item->getId();
+                        $this->hotBar[$key] = $item->getItemName();//$item->getId();
                         return;
                     }
                 }
@@ -26,7 +26,7 @@ class Hotbar {
     }
 
     public function addItemToSlot(Items $item, $slot) {
-        $this->hotBar[$slot] = $item->getId();
+        $this->hotBar[$slot] = $item->getItemName();//$item->getId();
     }
 
 
