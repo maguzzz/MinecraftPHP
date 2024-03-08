@@ -1,9 +1,11 @@
 <?php
 
-include_once('./Parents/IncludeITems.php');
+include_once('Parents/IncludeItems.php');
+include_once('Parents/IncludeBlocks.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $postData = json_decode(file_get_contents('php://input'), true);
+    //$postData = json_decode(file_get_contents('php://input'), true);
+    $postData = $_POST['data'];
 
     $block;
 
@@ -28,7 +30,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             break;
         default:
             $block = new Grass();
-            break;
     }
 
     $block->destroyBlock($tool);
